@@ -1,0 +1,10 @@
+.list-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.list-group > .card {
+    width: 18rem;
+}
