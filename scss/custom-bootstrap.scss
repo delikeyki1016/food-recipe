@@ -1,0 +1,36 @@
+// custom-bootstrap.scss
+
+// Bootstrap variables
+$primary: rgb(191, 145, 126); // 새로운 primary 색상
+
+// Bootstrap의 SCSS 파일을 가져옵니다
+@import "bootstrap/scss/bootstrap";
+
+
+// style.css 에서 이동 
+/* carousel 재정의 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+}
+.list-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 48px;
+}
+
+.list-group > .card {
+    width: 18rem;
+}
+
+.btn-primary {
+    color: #fff;
+}
+
+.card-body {
+    border-color: transparent !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
