@@ -34,3 +34,7 @@ $primary: rgb(191, 145, 126); // 새로운 primary 색상
     border-color: transparent !important;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+.carousel-item > img {
+    cursor:pointer;
+}

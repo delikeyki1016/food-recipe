@@ -1,3 +1,5 @@
+// open api 주소 : https://www.foodsafetykorea.go.kr/api/openApiInfo.do?menu_grp=MENU_GRP31&menu_no=661&show_cnt=10&start_idx=1&svc_no=COOKRCP01
+
 const API_KEY = "4ea57cfaa61b4f4c95c3";
 const originAddress = `https://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json`;
 let arrRecipe = [];
@@ -50,16 +52,18 @@ const render = () => {
 const showDetail = (index) => {
     console.log(arrRecipe[index]);
     let recipeOrderHTML = ``;
+    let order = 1;
     for (let i = 1; i <= 20; i++) {
         if (i < 10) {
             i = "0" + i;
         }
         const imgText = "arrRecipe[index].MANUAL_IMG" + i;
         const text = "arrRecipe[index].MANUAL" + i;
+        console.log("text:", eval(text));
         if (eval(imgText) !== "") {
             recipeOrderHTML += `<div class="d-flex align-items-start gap-3 m-3">
             <img src=${eval(imgText)} alt="" />
-            <p>${eval(text)}</p>
+            <p>${eval(text).replace(/^\d+/, order++)}</p>
         </div>`;
         }
     }
@@ -74,4 +78,29 @@ const showDetail = (index) => {
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>`;
     document.querySelector(".modal-content").innerHTML = detailHTML;
+};
+
+let billboardRecipe = [];
+const billboardLink = async (keyword) => {
+    const firstItem = 1;
+    const lastItem = 1;
+    const listAddress =
+        originAddress + `/${firstItem}/${lastItem}/RCP_NM=${keyword}`;
+    const url = new URL(listAddress);
+    // console.log(url);
+    try {
+        const response = await fetch(url);
+        // console.log("response:", response);
+        const data = await response.json(); // json파일형태로 data변수에 선언
+        if (response.status === 200) {
+            // console.log("data", data);
+            billboardRecipe = data.COOKRCP01.row;
+            console.log("빌보드레시피array", billboardRecipe);
+            // render();
+        } else {
+            throw new Error(response.statusText);
+        }
+    } catch (error) {
+        errorRender(error.message);
+    }
 };
