@@ -1,3 +1,23 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "liveSassCompile.settings.watchOnLaunch": true,
+    "liveServer.settings.ChromeDebuggingAttachment": false,
+    "liveSassCompile.settings.useNewCompiler": false,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "~/../",
+            "savePathReplacementPairs": null
+        },
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "~/../",
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.includeItems": [
+        "/scss/*.scss"
+    ]
 }

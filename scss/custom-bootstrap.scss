@@ -19,11 +19,18 @@ $primary: rgb(191, 145, 126); // 새로운 primary 색상
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 48px;
+    gap: 30px;
 }
 
 .list-group > .card {
     width: 18rem;
+    border-color: transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
+
+    > .card-img-top {
+        margin-left: -1px;
+        width: calc(100% + 2px);
+    }
 }
 
 .btn-primary {
@@ -32,9 +39,67 @@ $primary: rgb(191, 145, 126); // 새로운 primary 색상
 
 .card-body {
     border-color: transparent !important;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.carousel-item > img {
-    cursor:pointer;
+.carousel-item {
+    a {
+        border: 0;
+    }
+}
+
+footer {
+    width: 100%;
+    font-size: 12px;
+
+    nav {
+        width: 100%;
+        display: flex;
+        padding: 8px;
+        align-items: center;
+        background-color: rgb(238, 238, 238);
+
+        > ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+        }
+    }
+
+    .footer-info {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    address {
+        margin: 0;
+        color: #757575;
+
+        > div {
+            margin: 5px 0;
+            > p {
+                display: inline-block;
+                margin: 0 10px 0 0;
+            }
+        }
+    }
+}
+
+.footer-logo {
+    align-self:flex-end;
+    margin-top:10px;
+    text-align: right;
+    color: #757575;
+
+    > h5 {
+        font-size: 1rem;
+        margin-bottom:0;
+        color: rgb(147, 112, 98);
+    }
+
+    > p {
+        margin:0;
+    }
 }
