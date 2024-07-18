@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../include/css/headere.css" />
+    <link rel="stylesheet" href="ingredient.css" />
+</head>
+<body>
+    <div id="init">
+        <header></header>
+        <!-- header 및 footer 는 화면 로드 시 자동으로 내용으로 로드됩니다. -->
+    
+        <!-- main 작성-->
+        <main>
+            <section class="container">
+                <section class="div-ingredient">
+                    <div class="sub-ingredient">
+                        <h1> our Ingredients </h1>
+                        <p>냉장고에 있는 재료를 가지고 만들 수 있는 레시피를 검색해보세요.</p>
+                    </div>
+
+                    <div class="ingredient-bar">
+                        <button>달걀</button>
+                        <button>두부</button>
+                        <button>닭가슴살</button>
+                        <button>버터</button>
+                        <button>꿀</button>
+                        <button>우유</button>
+                        <button>설탕</button>
+                        <button>소금</button>
+                        <button>간장</button>
+                        <button>후추</button>
+                        <button>다진마늘</button>
+                        <button>고춧가루</button>
+                        <button>참기름</button>
+                        <button>식초</button>
+                        <button>흰후추</button>
+                        <button>올리브오일</button>
+                        <button>후춧가루</button>
+                        <button>올리브유</button>
+                        <button>맛간장</button>
+                        <button>된장</button>
+                        <button>저염간장</button>
+                        <button>고추장</button>
+                        <button>맛술</button>
+                        <button>마요네즈</button>
+                        <button>물엿</button>
+                        <button>올리고당</button>
+                        <button>국간장</button>
+                        <button>양파</button>
+                        <button>당근</button>
+                        <button>대파</button>
+                        <button>감자</button>
+                        <button>무</button>
+                        <button>오이</button>
+                        <button>토마토</button>
+                        <button>방울토마토</button>
+                        <button>파</button>
+                        <button>미나리</button>
+                        <button>시금치</button>
+                        <button>청고추</button>
+                        <button>표고버섯</button>
+                        <button>애호박</button>
+                        <button>고구마</button>
+                        <button>브로콜리</button>
+                        <button>깻잎</button>
+                        <button>홍고추</button>
+                        <button>홍피망</button>
+                        <button>실파</button>
+                        <button>사과</button>
+                        <button>레몬즙</button>
+                        <button>배</button>
+                        <button>레몬</button>
+                        <button>통깨</button>
+                        <button>다진마늘</button>
+                        <button>마늘다진것</button>
+                        <button>식용유</button>
+                        <button>호두</button>
+                        <button>생강</button>
+                        <button>찹쌀가루</button>
+                        <button>다시마</button>
+                        <button>전분</button>
+                        <button>생크림</button>
+                        <button>생강청</button>
+                        <button>단호박</button>
+                        <button>밥</button>
+                        <button>부추</button>
+                        <button>바질</button>
+                        <button>생강즙</button>
+                        <button>아몬드</button>
+                    </div>
+                </section>
+                
+
+                <section>
+                    <!-- <div class="RecipeTypes">
+                        <button>밥</button>
+                        <button>반찬</button>
+                        <button>찌개</button>
+                        <button>일품</button>
+                        <button>후식</button>
+                        <button>기타</button>
+                    </div> -->
+                    
+                </section>
+                <section id="recipe-board">
+                    <div class="row recipe">
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer></footer>
+    </div>
+
+    
+    <!-- jQuery 먼저 로드 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <!-- FontAwesome 로드 -->
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <!-- 커스텀 JS 로드 -->
+    <script src="ingredient.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('header').load('../include/header.html');
+            $('footer').load('../include/footer.html');
+        });
+    </script>
+</body>
+</html>

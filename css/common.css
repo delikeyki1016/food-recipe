@@ -1,0 +1,93 @@
+/* 웹페이지 메인화면에 대한 css 작성 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif; /* 원하는 기본 글꼴 설정 */
+}
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0px auto;
+}
+.header-banner {
+    padding: 10px 14px;
+    background: rgb(147, 112, 98);
+}
+.header-banner-content {
+    color: white;
+    text-align: center;
+    font-family: "Noto Sans KR", Helvetica, "Helvetica Neue", Arial, "sans-serif";
+    font-size: 12px;
+    line-height: 19px;
+    letter-spacing: -0.5px;
+    margin-left: 8px;
+    line-height: 5px;
+    letter-spacing: -0.5px;
+    padding: 2px;
+}
+.header-banner a {
+    text-decoration: none;
+}
+
+.header-logo{
+    padding-top: 8px;
+    padding-right: 14px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 20px;
+}
+.logo {
+    width: 150px; 
+    height: auto;
+}
+.user-action {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+.user-action div {
+    display: flex;
+    align-items: center;
+}
+.user-action a, .user-action div, .user-action span {
+    margin: 0 5px;
+}
+
+
+.nav-menu {
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 36px 18px 0px 0px;
+    display: inline-grid;
+    grid-auto-flow: column;
+    column-gap: 20px;
+    transform: translateX(17px); /* 오른쪽으로 10px 이동 */
+}
+.nav-menu a {
+    text-decoration: none;
+}
+.nav-menu-style {
+    box-sizing: border-box;
+    height: 36px;
+    padding: 0px 8px 12px;
+    cursor: pointer;
+    font-family: "Noto Sans KR", Helvetica, "Helvetica Neue", Arial, "sans-serif";
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: black;;
+    font-weight: 550;
+}
+/* border-bottom: 2px solid rgb(147, 112, 98); */
+.nav-menu-style:hover {
+    color: rgb(191, 145, 126);
+}

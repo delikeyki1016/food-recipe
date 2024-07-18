@@ -1,0 +1,89 @@
+/* --------------------공통 header CSS---------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif; /* 원하는 기본 글꼴 설정 */
+}
+
+/* header-banner */
+.header-banner {
+    padding: 8px 14px;
+    background: rgb(147, 112, 98);
+}
+.header-banner-content {
+    color: white;
+    text-align: center;
+    font-family: "Noto Sans KR", Helvetica, "Helvetica Neue", Arial, "sans-serif";
+    font-size: 12px;
+}
+.header-banner a {
+    text-decoration: none;
+}
+
+/* logo & user action */
+.header-logo{
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+.logo {
+    width: 150px; 
+    height: auto;
+}
+.user-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+.user-action a, .user-action span {
+    margin: 0 5px;
+}
+
+/* nav-menu */
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center; 
+    margin: 36px 0px 0px 0px;
+}
+.nav-menu a {
+    text-decoration: none;
+}
+.nav-menu-style {
+    padding: 0px 15px 10px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    font-family: "Noto Sans KR", Helvetica, "Helvetica Neue", Arial, "sans-serif";
+    color: black;;
+    font-size: 16px;
+    font-weight: 550;
+
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-align: center;
+}
+
+/* border-bottom: 2px solid rgb(147, 112, 98); */
+.nav-menu-style:hover {
+    color: rgb(191, 145, 126);
+}
+
+.active-nav {
+    color: rgb(149, 106, 89);
+    border-bottom: 2px solid rgb(147, 112, 98);
+}
+
+.div-line {
+    margin: 20px 0px;
+    border: 1px solid #ebebeb;
+}
+
+/* ------------------------------------------------ */

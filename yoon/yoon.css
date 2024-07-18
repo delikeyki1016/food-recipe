@@ -1,0 +1,63 @@
+.recipe-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.recipe {
+  border: 1px solid #676767;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.recipe:hover {
+  transform: translateY(-5px);
+}
+
+.recipe h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.recipe img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.recipe p {
+  margin: 5px 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: blue;
+}
+
+.nutrition-box > div {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.nutrition-box input {
+  margin: 0.4rem;
+}
+.nutrition-box h4 {
+  padding-right: 3rem;
+}
+.nutrition-box {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-wrap: wrap;
+  margin: 7px;
+}
