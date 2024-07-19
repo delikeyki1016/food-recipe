@@ -46,12 +46,20 @@ const render = () => {
     arrRecipe.map((item, index) => {
         listHTML += `
         <div class="card">
-            <img src=${item.ATT_FILE_NO_MAIN} class="card-img-top" alt=${item.RCP_NM}>
+            <img src=${item.ATT_FILE_NO_MAIN} class="card-img-top" alt=${
+            item.RCP_NM
+        }>
             <div class="card-body">
                 <h5 class="card-title">${item.RCP_NM}</h5>
                 <ul>
                     <li>${item.INFO_ENG} calorie</li>
-                    <li>#${item.HASH_TAG}</li>
+                    <li>#${
+                        item.HASH_TAG
+                            ? item.HASH_TAG
+                            : item.RCP_NM.split(" ")[
+                                  item.RCP_NM.split(" ").length - 1
+                              ]
+                    }</li>
                 </ul>
                 <a role="button" data-bs-toggle="modal" data-bs-target="#recipeModal" class="btn btn-primary" onclick="showDetail(${index})">레시피 보기</a>
             </div>
