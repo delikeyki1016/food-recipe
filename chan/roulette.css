@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
 
 * {
-  font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+  font-family: 'Noto Serif KR', serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+img {
+  width: 400px;
 }
 
 body {
@@ -27,7 +32,7 @@ p {
 }
 
 .mainTop h1 {
-  font-family: "Noto Serif KR", serif, Helvetica, "Helvetica Neue", Arial;
+  font-family: 'Noto Serif KR', serif, Helvetica, 'Helvetica Neue', Arial;
   font-size: 1.8rem;
   line-height: 2.8rem;
   margin-top: 40px;
@@ -40,13 +45,12 @@ p {
 
 .mainTop p {
   font-weight: normal;
-  font-family: "Noto Serif KR", serif, Helvetica, "Helvetica Neue", Arial;
+  font-family: 'Noto Serif KR', serif, Helvetica, 'Helvetica Neue', Arial;
   font-size: 0.8rem;
   line-height: 1rem;
   letter-spacing: 0px;
   text-align: center;
   font-weight: 500;
-  /* margin-top: 16px; */
 }
 
 .choiceFoodBtn {
@@ -140,13 +144,11 @@ canvas {
   box-shadow: 0px 4px #87a86f;
 }
 
-
 .button.green:active {
   box-shadow: 0px 2px 0px #6f8a5f;
   background-color: #6f8a5f;
   transform: translateY(2px);
 }
-
 
 .button.blue {
   background-color: #7fb1bf;
@@ -163,7 +165,6 @@ canvas {
   background-color: #fa5a5a;
   box-shadow: 0px 4px 0px #e04342;
 }
-
 
 .button.red:active {
   box-shadow: 0px 2px 0px #c63636;
@@ -247,24 +248,51 @@ canvas {
   color: #555;
   line-height: 1.6;
 }
+/* 기본 스타일 적용 */
+body {
+  font-family: 'Noto Serif KR', serif;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  text-align: center;
+}
 
-/* Media Queries */
+/* 미디어 쿼리 */
+@media (max-width: 1200px) {
+  /* 태블릿 스타일 */
+  .choiceFoodBtn {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .rouletteContainer {
+    padding: 50px;
+  }
+
+  .roulette {
+    width: 500px;
+    height: 500px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+}
+
 @media (max-width: 768px) {
+  /* 모바일 스타일 */
   .choiceFoodBtn {
     width: 100%;
     flex-direction: column;
   }
 
   .rouletteContainer {
-    width: 90%;
-    height: auto;
+    padding: 20px;
   }
 
   .roulette {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    width: 300px;
+    height: 300px;
   }
 
   .btn {
@@ -275,15 +303,14 @@ canvas {
 }
 
 @media (max-width: 480px) {
+  /* 작은 모바일 스타일 */
   .rouletteContainer {
     padding: 10px;
   }
 
   .roulette {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    width: 200px;
+    height: 200px;
   }
 
   .btn {
@@ -291,4 +318,31 @@ canvas {
     padding: 8px 16px;
     font-size: 12px;
   }
+}
+
+/* 추가적인 스타일 */
+.choiceFoodBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.rouletteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.roulette {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  height: 650px;
+  padding-bottom: 100%; /* 1:1 비율을 유지하기 위해 padding-bottom을 100%로 설정 */
 }
