@@ -35,6 +35,11 @@ $primary: rgb(191, 145, 126); // 새로운 primary 색상
         margin-left: -1px;
         width: calc(100% + 2px);
     }
+
+    &:hover {
+        transform: scale(1.02);   /* 이미지 확대 */
+        transition: transform .1s; 
+    }
 }
 
 .btn-primary {

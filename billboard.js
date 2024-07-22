@@ -67,7 +67,7 @@ const getRecipe = async () => {
         if (response.status === 200) {
             console.log("data", data);
             arrRecipe = data.COOKRCP01.row;
-            // console.log("레시피array", arrRecipe);
+            console.log("레시피array", arrRecipe, typeof arrRecipe); // typeof 확인할때 배열도 객체로 취급됨
             totalResults = data.COOKRCP01.total_count;
             render();
             pageRender();
@@ -83,9 +83,11 @@ const getRecipe = async () => {
 // 리스트 그리기
 const render = () => {
     let listHTML = ``;
+    console.log(typeof arrRecipe, arrRecipe);
     arrRecipe.map((item, index) => {
+        // console.log(typeof item.RCP_NM, item.RCP_NM);
         listHTML += `
-        <div class="card">
+        <div class="card" role="button" data-bs-toggle="modal" data-bs-target="#recipeModal" class="btn btn-primary" onclick="showDetail(${index})">
             <img src=${item.ATT_FILE_NO_MAIN} class="card-img-top" alt=${
             item.RCP_NM
         }>
@@ -101,7 +103,6 @@ const render = () => {
                               ]
                     }</li>
                 </ul>
-                <a role="button" data-bs-toggle="modal" data-bs-target="#recipeModal" class="btn btn-primary" onclick="showDetail(${index})">레시피 보기</a>
             </div>
             </div>`;
     });

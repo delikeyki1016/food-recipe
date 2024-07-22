@@ -11873,6 +11873,10 @@ textarea.form-control-lg {
   margin-left: -1px;
   width: calc(100% + 2px);
 }
+.list-group > .card:hover {
+  transform: scale(1.02); /* 이미지 확대 */
+  transition: transform 0.1s;
+}
 
 .btn-primary {
   color: #fff;
