@@ -45,6 +45,8 @@ billboardLink();
 
 // 레시피 리스트 api
 const getRecipe = async () => {
+    let loading = true;
+    updateLoading(loading);
     const firstItem = (pageNum - 1) * pageSize + 1;
     const lastItem = firstItem + pageSize - 1;
     // console.log(firstItem, lastItem);
@@ -77,6 +79,19 @@ const getRecipe = async () => {
     } catch (error) {
         console.log("error:", error);
         // errorRender(error.message);
+    } finally {
+        loading = false;
+        updateLoading(loading);
+    }
+
+    // 로딩 상태 UI 업데이트 함수
+    function updateLoading(isLoading) {
+        const loadingElement = document.getElementById("loading");
+        if (isLoading) {
+            loadingElement.style.display = "flex";
+        } else {
+            loadingElement.style.display = "none";
+        }
     }
 };
 
