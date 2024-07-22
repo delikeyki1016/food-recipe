@@ -8,37 +8,77 @@ let totalResults = 0; // 전체 레시피 수
 const pageSize = 10; // 한페이지에 보여줄 레시피개수
 const groupSize = 5; // 한그룹에 보여줄 페이지 수
 let pageNum = 1; // 현재 페이지넘버
+let keyword = ""; // 키워드
+
+// 빌보드 키워드 api
+let billboardKeyword = ["채소비빔밥", "약밥", "유부완자탕"];
+let billboardRecipe = [];
+const billboardLink = async () => {
+    for (let i = 0; i < billboardKeyword.length; i++) {
+        const listAddress =
+            originAddress + `/1/1/RCP_NM=${billboardKeyword[i]}`;
+        // console.log(i, listAddress);
+        const url = new URL(listAddress);
+        // console.log("url:", url);
+        try {
+            const response = await fetch(url);
+            // console.log("응답", response);
+            const data = await response.json();
+            // console.log("빌보드데이터", data);
+            if (response.status === 200) {
+                // console.log("200일때:", response.statusText);
+                billboardRecipe.push(data.COOKRCP01.row[0]);
+            } else {
+                console.log("200이 아닌거야?");
+                throw new Error(response.statusText);
+            }
+        } catch (error) {
+            console.log("error:", error);
+            // errorRender(error.message);
+        }
+    }
+
+    await getRecipe(); //초기 로드시에 아래 빌보드함수 호출처럼 했더니, 빌보드 함수에서 약밥데이터에서 에러가 발생하여서 이렇게 수정하니 정상노출됨
+};
+
+billboardLink();
 
 // 레시피 리스트 api
 const getRecipe = async () => {
     const firstItem = (pageNum - 1) * pageSize + 1;
     const lastItem = firstItem + pageSize - 1;
     // console.log(firstItem, lastItem);
-    const listAddress = originAddress + `/${firstItem}/${lastItem}`;
+    let listAddress = "";
+
+    if (keyword && keyword !== "") {
+        listAddress =
+            originAddress + `/${firstItem}/${lastItem}/RCP_NM=${keyword}`;
+        console.log("키워드가 있는 경우 url:", listAddress);
+    } else {
+        listAddress = originAddress + `/${firstItem}/${lastItem}`;
+        console.log("키워드가 없는 경우 url:", listAddress);
+    }
     const url = new URL(listAddress);
-    // console.log(url);
+
     try {
         const response = await fetch(url);
         // console.log("response:", response);
         const data = await response.json(); // json파일형태로 data변수에 선언
         if (response.status === 200) {
-            // console.log("data", data);
+            console.log("data", data);
             arrRecipe = data.COOKRCP01.row;
             // console.log("레시피array", arrRecipe);
             totalResults = data.COOKRCP01.total_count;
             render();
             pageRender();
-
-            billboardLink();
         } else {
             throw new Error(response.statusText);
         }
     } catch (error) {
-        errorRender(error.message);
+        console.log("error:", error);
+        // errorRender(error.message);
     }
 };
-
-getRecipe();
 
 // 리스트 그리기
 const render = () => {
@@ -123,30 +163,6 @@ const moveToPage = (page) => {
     getRecipe();
 };
 
-// 빌보드 키워드 api
-let billboardKeyword = ["채소비빔밥", "약밥", "유부완자탕"];
-let billboardRecipe = [];
-const billboardLink = async () => {
-    for (let i = 0; i < billboardKeyword.length; i++) {
-        const listAddress =
-            originAddress + `/1/1/RCP_NM=${billboardKeyword[i]}`;
-        // console.log(listAddress);
-        const url = new URL(listAddress);
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            // console.log("빌보드데이터", data);
-            if (response.status === 200) {
-                billboardRecipe.push(data.COOKRCP01.row[0]);
-            } else {
-                throw new Error(response.statusText);
-            }
-        } catch (error) {
-            errorRender(error.message);
-        }
-    }
-};
-
 // 레시피 모달 보여주기
 const showDetail = (index, arrName) => {
     let showRecipe = [];
@@ -183,4 +199,19 @@ const showDetail = (index, arrName) => {
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>`;
     document.querySelector(".modal-content").innerHTML = detailHTML;
+};
+
+// 키워드 검색
+const keywordSearch = () => {
+    keyword = document.getElementById("recipeKeyword").value;
+    console.log(keyword);
+    getRecipe();
+};
+
+// go index 로고 클릭시 홈으로
+const goIndex = () => {
+    document.getElementById("recipeKeyword").value = "";
+    keyword = "";
+    pageNum = 1;
+    getRecipe();
 };

@@ -8,6 +8,10 @@ $primary: rgb(191, 145, 126); // 새로운 primary 색상
 
 
 // style.css 에서 이동 
+.logo-top {
+    cursor: pointer;
+    color: rgb(147, 112, 98);
+}
 /* carousel 재정의 */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
